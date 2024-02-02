@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kaiseki\WordPress\CliUtil;
+namespace Kaiseki\WordPress\WpCli\Util;
 
 final class ConfigProvider
 {
@@ -12,19 +12,12 @@ final class ConfigProvider
     public function __invoke(): array
     {
         return [
-            'cli_util' => [
-                'feature_notice' => 'wp-cli-util',
-            ],
             'hook' => [
-                'provider' => [
-                    FeatureName::class,
-                ],
+                'provider' => [],
             ],
             'dependencies' => [
                 'aliases' => [],
-                'factories' => [
-                    FeatureName::class => FeatureNameFactory::class,
-                ],
+                'factories' => [],
             ],
         ];
     }
