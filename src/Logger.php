@@ -18,6 +18,13 @@ class Logger
         \WP_CLI::log($indentString . $message);
     }
 
+    public function start(string $message, bool $indent = false): void
+    {
+        $indentString = $this->getIndentString($indent);
+        $prefix = $this->colorizer->toCyan("Start:");
+        \WP_CLI::log("{$indentString}👉 {$prefix} {$message}");
+    }
+
     public function success(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
