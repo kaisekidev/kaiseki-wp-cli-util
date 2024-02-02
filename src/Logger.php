@@ -10,9 +10,10 @@ class Logger
     {
     }
 
-    public function log(string $message): void
+    public function log(string $message, bool $indent = false): void
     {
-        \WP_CLI::log($message);
+        $indentString = $this->getIndentString($indent);
+        \WP_CLI::log($indentString . $message);
     }
 
     public function success(string $message, bool $indent = false): void
