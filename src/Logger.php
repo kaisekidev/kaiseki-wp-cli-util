@@ -6,6 +6,8 @@ namespace Kaiseki\WordPress\WpCli\Util;
 
 class Logger
 {
+    public const INDENT = '↳   ';
+
     public function __construct(private readonly Colorizer $colorizer)
     {
     }
@@ -39,6 +41,6 @@ class Logger
 
     private function getIndentString(bool $indent): string
     {
-        return $indent ? '↳   ' : '';
+        return $indent ? self::INDENT : '';
     }
 }
