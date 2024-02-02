@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kaiseki\WordPress\WpCli\Util;
 
 use function ceil;
+use function end;
 use function floor;
 use function implode;
 use function microtime;
@@ -12,6 +13,7 @@ use function microtime;
 class Timer
 {
     private float $startTime;
+    private array $interims = [];
 
     public function startTimer(): void
     {
@@ -31,6 +33,23 @@ class Timer
     public function getElapsedTimeString(): string
     {
         return $this->secondsToTime($this->getElapsedTime());
+    }
+
+    public function addInterval(): void
+    {
+        $this->interims[] = microtime(true);
+    }
+
+    public function getIntervalTime(): float
+    {
+        return $this->interims !== []
+            ? microtime(true) - end($this->interims)
+            : $this->getElapsedTime();
+    }
+
+    public function getIntervalTimeString(): string
+    {
+        return $this->secondsToTime($this->getIntervalTime());
     }
 
     protected function secondsToTime(float $inputSeconds): string
