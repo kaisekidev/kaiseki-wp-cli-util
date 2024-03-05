@@ -13,6 +13,7 @@ use function microtime;
 class Timer
 {
     private float $startTime;
+    /** @var list<float> */
     private array $interims = [];
 
     public function startTimer(): void

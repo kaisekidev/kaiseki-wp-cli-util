@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\WpCli\Util;
 
+use WP_CLI;
+
 class Colorizer
 {
     protected function colorize(string $message, string $color): string
     {
-        return \WP_CLI::colorize("%{$color}{$message}%n");
+        return WP_CLI::colorize("%{$color}{$message}%n");
     }
 
     public function toYellow(string $message): string
