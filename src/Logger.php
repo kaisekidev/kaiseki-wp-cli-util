@@ -48,6 +48,13 @@ class Logger
         WP_CLI::log("{$indentString}⚠️ {$prefix} {$message}");
     }
 
+    public function info(string $message, bool $indent = false): void
+    {
+        $indentString = $this->getIndentString($indent);
+        $prefix = $this->colorizer->toBlue("Info:");
+        WP_CLI::log("{$indentString}ℹ️️ {$prefix} {$message}");
+    }
+
     private function getIndentString(bool $indent): string
     {
         return $indent ? self::INDENT : '';
