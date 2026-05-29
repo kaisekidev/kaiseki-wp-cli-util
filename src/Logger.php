@@ -23,35 +23,35 @@ class Logger
     public function start(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
-        $prefix = $this->colorizer->toCyan("Start:");
+        $prefix = $this->colorizer->toCyan('Start:');
         WP_CLI::log("{$indentString}👉 {$prefix} {$message}");
     }
 
     public function success(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
-        $prefix = $this->colorizer->toGreen("Success:");
+        $prefix = $this->colorizer->toGreen('Success:');
         WP_CLI::log("{$indentString}✅ {$prefix} {$message}");
     }
 
     public function warning(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
-        $prefix = $this->colorizer->toYellow("Warning:");
+        $prefix = $this->colorizer->toYellow('Warning:');
         WP_CLI::log("{$indentString}❌ {$prefix} {$message}");
     }
 
     public function error(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
-        $prefix = $this->colorizer->toRed("Error:");
+        $prefix = $this->colorizer->toRed('Error:');
         WP_CLI::log("{$indentString}⚠️ {$prefix} {$message}");
     }
 
     public function info(string $message, bool $indent = false): void
     {
         $indentString = $this->getIndentString($indent);
-        $prefix = $this->colorizer->toBlue("Info:");
+        $prefix = $this->colorizer->toBlue('Info:');
         WP_CLI::log("{$indentString}ℹ️️ {$prefix} {$message}");
     }
 
