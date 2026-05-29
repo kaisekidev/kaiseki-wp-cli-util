@@ -67,4 +67,4 @@ composer check   # cs-check, phpstan
 
 ## License
 
-Proprietary.
+MIT — see [LICENSE](LICENSE).
